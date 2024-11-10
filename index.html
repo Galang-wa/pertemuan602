@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penghitung Luas Segitiga</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: hsl(125, 66%, 45%);
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            font-size: 18px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>menghitung Luas Segitiga</h1>
+
+    <div class="container">
+        <label for="alas">Masukkan panjang alas segitiga (misal: 5.0):</label>
+        <input type="number" id="alas" placeholder="Panjang alas" required>
+
+        <label for="tinggi">Masukkan tinggi segitiga (misal: 10.0):</label>
+        <input type="number" id="tinggi" placeholder="Tinggi segitiga" required>
+
+        <button onclick="hitungLuas()">Hitung Luas</button>
+
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        // Fungsi untuk menghitung luas segitiga
+        function hitungLuas() {
+            // Mendapatkan nilai dari input
+            var alas = parseFloat(document.getElementById('alas').value);
+            var tinggi = parseFloat(document.getElementById('tinggi').value);
+
+            // Cek apakah input valid
+            if (isNaN(alas) || isNaN(tinggi) || alas <= 0 || tinggi <= 0) {
+                document.getElementById('result').innerHTML = "Silakan masukkan nilai yang valid untuk alas dan tinggi!";
+                return;
+            }
+
+            // Menghitung luas segitiga
+            var luas = 0.5 * alas * tinggi;
+
+            // Menampilkan hasil
+            document.getElementById('result').innerHTML = "Luas segitiga adalah: " + luas + " satuan luas.";
+        }
+    </script>
+
+</body>
+</html>
